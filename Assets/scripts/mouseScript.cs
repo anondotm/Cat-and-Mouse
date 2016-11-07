@@ -9,7 +9,7 @@ public class mouseScript : MonoBehaviour {
 		Vector3 directionToCat = catTransform.position - transform.position;
 		//Debug.Log (directionToCat);
 
-		Debug.DrawRay (transform.position, directionToCat, Color.green);
+		Debug.DrawRay (transform.position, directionToCat * 1.5f, Color.green);
 
 		if (Vector3.Angle(transform.forward, directionToCat) < 180) {
 			//Debug.Log ("Woa dere");
@@ -18,6 +18,7 @@ public class mouseScript : MonoBehaviour {
 		
 			if (Physics.Raycast(mouseRay, out mouseHitRayInfo, 5f)){
 				if (mouseHitRayInfo.collider.tag == "cat") {
+					GetComponent<Rigidbody> ().AddForce (-directionToCat.normalized * 1000);
 					Debug.Log ("Run!");
 				}
 			}
