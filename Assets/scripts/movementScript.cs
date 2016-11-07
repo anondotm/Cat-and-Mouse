@@ -3,9 +3,11 @@ using System.Collections;
 
 public class movementScript : MonoBehaviour {
 
+	public float speed;
+
 	// Update is called once per frame
 	void FixedUpdate () {
-		GetComponent<Rigidbody>().velocity = transform.forward * 10f + Physics.gravity;
+		GetComponent<Rigidbody>().velocity = transform.forward * speed + Physics.gravity;
 
 		Ray newRay = new Ray (transform.position, transform.forward);
 
