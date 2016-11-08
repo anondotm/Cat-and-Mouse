@@ -28,7 +28,7 @@ public class catScript : MonoBehaviour {
 		Vector3 directionToMouse = mouse.position - transform.position;
 
 		//check if the mouse is in front of the cat
-		if (Vector3.Angle (transform.position, directionToMouse) < 135) {
+		if (Vector3.Angle (transform.position, directionToMouse) < 120) {
 
 
 			Ray catRay = new Ray (transform.position, directionToMouse);

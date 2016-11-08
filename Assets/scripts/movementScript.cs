@@ -28,7 +28,7 @@ public class movementScript : MonoBehaviour {
 			speed = startSpeed;
 
 				float randomFloat = Random.value;
-				if (randomFloat < .6f) {
+				if (randomFloat < .5f) {
 					transform.Rotate (new Vector3 (0, 90, 0));
 				} else {
 					transform.Rotate (new Vector3 (0, -90, 0));
