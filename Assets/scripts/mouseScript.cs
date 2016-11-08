@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class mouseScript : MonoBehaviour {
+	public AudioSource mouseAudio;
 	public Transform catTransform;
 	
 	// Update is called once per frame
@@ -16,8 +17,11 @@ public class mouseScript : MonoBehaviour {
 			Ray mouseRay = new Ray (transform.position, directionToCat);
 			RaycastHit mouseHitRayInfo = new RaycastHit ();
 		
-			if (Physics.Raycast(mouseRay, out mouseHitRayInfo, 2.5f)){
+			if (Physics.Raycast(mouseRay, out mouseHitRayInfo, 2f)){
 				if (mouseHitRayInfo.collider.tag == "cat") {
+					if (mouseAudio.isPlaying == false) {
+						mouseAudio.Play ();
+					}
 					transform.Rotate (new Vector3(0, 180, 0));
 					GetComponent<movementScript> ().speed = GetComponent<movementScript> ().speed * 3;
 					//GetComponent<Rigidbody> ().AddForce (-directionToCat.normalized * 2000);

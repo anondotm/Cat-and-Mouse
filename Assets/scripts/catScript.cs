@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class catScript : MonoBehaviour {
-
+	public AudioSource catChase;
+	public AudioSource catWin;
 	public Transform mouse;
 
 	// Use this for initialization
@@ -40,6 +41,9 @@ public class catScript : MonoBehaviour {
 					if (catRayHitInfo.distance <= 1) {
 						Destroy (mouse.gameObject);
 					} else {
+						if (catChase.isPlaying == false) {
+							catChase.Play ();
+						}
 						GetComponent<Rigidbody> ().AddForce (directionToMouse.normalized * 500f);
 					}
 				}
