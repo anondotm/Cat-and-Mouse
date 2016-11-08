@@ -16,10 +16,11 @@ public class mouseScript : MonoBehaviour {
 			Ray mouseRay = new Ray (transform.position, directionToCat);
 			RaycastHit mouseHitRayInfo = new RaycastHit ();
 		
-			if (Physics.Raycast(mouseRay, out mouseHitRayInfo, 5f)){
+			if (Physics.Raycast(mouseRay, out mouseHitRayInfo, 3f)){
 				if (mouseHitRayInfo.collider.tag == "cat") {
-					//GetComponent<Rigidbody> ().AddForce (-directionToCat.normalized * 1500);
 					transform.Rotate (new Vector3(0, 180, 0));
+					GetComponent<movementScript> ().speed = GetComponent<movementScript> ().speed * 2;
+					//GetComponent<Rigidbody> ().AddForce (-directionToCat.normalized * 2000);
 					Debug.Log ("Run!");
 				}
 			}

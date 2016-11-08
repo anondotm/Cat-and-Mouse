@@ -35,12 +35,12 @@ public class catScript : MonoBehaviour {
 			RaycastHit catRayHitInfo = new RaycastHit ();
 			//Debug.DrawRay (catRay.origin, catRay.direction, Color.grey);
 
-			if (Physics.Raycast (catRay, out catRayHitInfo, 2.5f)) {
+			if (Physics.Raycast (catRay, out catRayHitInfo, 3f)) {
 				if (catRayHitInfo.collider.tag == "mouse") {
 					if (catRayHitInfo.distance <= 1) {
 						Destroy (mouse.gameObject);
 					} else {
-						GetComponent<Rigidbody> ().AddForce (directionToMouse.normalized * 1000f);
+						GetComponent<Rigidbody> ().AddForce (directionToMouse.normalized * 500f);
 					}
 				}
 			}
